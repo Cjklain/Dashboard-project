@@ -3,6 +3,13 @@
     margin: 0;
 }
 
+:root{
+    --main-color: #e5e7eb;
+    --main-font-color: #334155;
+    --white-color: #f8fafc;
+    --card-color: #f1f5f9;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     
@@ -21,14 +28,16 @@ nav{
 }
 
 header{
-    background-color: white;
+    background-color: var(--white-color);
     display: grid;
     grid-template-rows: 1fr 2fr;
     padding-top: 15px;
+    z-index: 1;
+    box-shadow:  0px 3px 3px lightgray;
 }
 
 main{
-    background-color: lightgreen;
+    background-color: var(--main-color);
 }
 
 nav svg{
@@ -45,7 +54,7 @@ nav svg{
     align-items: center;
     padding: 2rem;
     gap: 1rem;
-    color: white;
+    color: var(--white-color);
 }
 
 
@@ -82,16 +91,17 @@ header .notification{
 }
 
 header input[type="search"]{
-    background-color: lightgrey;
+    background-color: var(--main-color);
     padding: 8px;
     width: 80%;
     border-radius: 15px;
     border: none;
 }
 
-header .notification img{
+header .notification img,
+main .trending .profiles img{
     border-radius: 50%;
-    width: 40px;
+    width: 50px;
 }
 
 header .profile img {
@@ -107,6 +117,11 @@ header .profile{
     gap: 2rem;
 }
 
+header .profile .user-name{
+    display: grid;
+    gap: 7px;
+}
+
 header .profile .control{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -116,10 +131,120 @@ header .profile .control{
 
 header .profile .control button{
     background-color: #0ea5e9;
-    color: white;
-    padding: 9px;
-    font-size: 0.8rem;
+    color: var(--white-color);
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 900;
     border-radius: 20px;
     width: 70%;
     border: none;
+}
+
+header .profile .control button:hover{
+    background-color: #0d84bb;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    padding: 20px;
+    gap: 20px;
+}
+
+section.projects{
+    grid-row: span 2;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+}
+
+section.projects .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px,300px));
+    gap: 20px;
+}
+
+
+main .projects .cards .card{
+    background-color: var(--card-color);
+    padding: 30px;
+    padding-top: 50px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    /* align-items: center; */
+    border-radius: 10px;
+    box-shadow:  4px 3px 3px lightgray;
+    border-left: solid 10px #16a34a;
+}
+
+main .projects .cards .card .content h3{
+    padding-bottom: 8px;
+}
+
+main .projects .cards .card .icons{
+    justify-self: end;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1.5rem;
+}
+
+main .projects .cards .card .content p,
+main .announcement .board .message p{
+    color: var(--main-font-color);
+}
+
+main .announcement,
+main .trending{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px
+}
+
+main .announcement .board{
+    box-shadow:  4px 3px 3px lightgray;
+    border-radius: 15px;
+    background-color: var(--card-color);
+    padding: 30px;
+    padding-top: 50px;
+    display: grid;
+    gap: 15px;
+    grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+main .announcement .board .message h4{
+    padding-bottom: 3px;
+}
+
+main .announcement .board hr{
+    align-self: center;
+    color: var(--main-color);
+}
+
+main .trending .profiles{
+    box-shadow:  4px 3px 3px lightgray;
+    border-radius: 15px;
+    background-color: var(--card-color);
+    display: grid;
+    grid-template-rows: repeat(auto-fil,1fr);
+    padding: 30px;
+    gap: 15px;
+    align-items: center;
+}
+
+main .trending .profiles .profile{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+    color: var(--main-font-color);
+}
+
+main .trending .profiles .profile .id .email{
+    padding-bottom: 5px;
+}
+
+section .title{
+    font-size: 1.3rem;
 }
